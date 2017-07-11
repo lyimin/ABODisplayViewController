@@ -10,12 +10,15 @@
 #import "ABODisplayTitleView.h"
 #import "ABODisplayViewHeader.h"
 #import "UIView+Frame.h"
+#import "ABODisplayTagsView.h"
 
 @interface ABODisplayViewController ()
 
 /** 顶部滚动标题*/
 @property(nonatomic, strong) ABODisplayTitleView *titleView;
 
+/** 中间子分类view*/
+@property(nonatomic, strong) ABODisplayTagsView *tigsView;
 @end
 
 @implementation ABODisplayViewController
@@ -25,9 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = false;
+    self.view.backgroundColor = ABODisplayColor(250, 250, 250);
     
+    // 添加标题栏
     [self.view addSubview:self.titleView];
     self.titleView.titleArray = self.titleArray;
+    
+    // 添加子分类View
+    [self.view addSubview:self.tigsView];
 }
 
 
@@ -36,8 +45,8 @@
 - (ABODisplayTitleView *)titleView
 {
     if (!_titleView) {
+        
         _titleView = [[ABODisplayTitleView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, ABODisplayTitleViewHeight)];
-        _titleView.backgroundColor = [UIColor redColor];
     }
     
     return _titleView;
@@ -50,6 +59,17 @@
     }
     
     return _titleArray;
+}
+
+- (ABODisplayTagsView *)tigsView
+{
+    if (!_tigsView) {
+        
+        _tigsView = [[ABODisplayTagsView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleView.frame), self.view.width, self.view.height-CGRectGetMaxY(self.titleView.frame))];
+        
+    }
+    
+    return _tigsView;
 }
 
 

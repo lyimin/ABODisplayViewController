@@ -13,4 +13,6 @@
 /** 顶部标题数组*/
 @property(nonatomic, strong) NSArray *titleArray;
 
+/** 是否显示菜单页*/
+@property(nonatomic, assign) BOOL isSHowBannerView;
 @end

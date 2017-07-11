@@ -14,6 +14,8 @@
 
 #endif /* ABODisplayViewHeader_h */
 
+/*********************** ABODisplayTitleView ***********************/
+
 /** 字体颜色*/
 
 // RGB颜色
@@ -44,4 +46,9 @@ UIKIT_EXTERN const CGFloat ABODisplayTitleViewHeight;
 // 标题之间的间隔
 UIKIT_EXTERN const CGFloat ABODisplayTitleViewMargin;
 
+// 点击每个title切换动画的时间
+UIKIT_EXTERN const NSTimeInterval ABODisplayTitleViewInterval;
+
+
+/*********************** ABODisplayTagsView ***********************/
 

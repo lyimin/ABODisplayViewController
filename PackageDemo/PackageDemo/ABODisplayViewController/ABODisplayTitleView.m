@@ -3,7 +3,7 @@
 //  PackageDemo
 //
 //  Created by eamon on 2017/7/10.
-//  Copyright © 2017年 gjk. All rights reserved.
+//  Copyright © 2017年 ;. All rights reserved.
 //
 
 #import "ABODisplayTitleView.h"
@@ -15,29 +15,42 @@
 /** 顶部滚动标题*/
 @property(nonatomic, strong) UIScrollView *scrollView;
 
+/** 当前索引view*/
+@property(nonatomic, strong) UIView *indexView;
+
 /** 用于保存标题数组*/
 @property(nonatomic, copy) NSMutableArray *titleViews;
+
+
 @end
 
 @implementation ABODisplayTitleView
 
 #pragma mark - LifeStyle
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        
+        [self addSubview:self.scrollView];
+        [self.scrollView addSubview:self.indexView];
+        [self.scrollView bringSubviewToFront:self.indexView];
+        
+        // 默认选中第一个tab
+        self.index = 0;
+    }
+    
+    return self;
+}
+
 - (instancetype) initWithFrame: (CGRect)frame titleArray: (NSArray *)titleArray
 {
     if (self = [super initWithFrame:frame]) {
         
         // 添加控件
-        [self addSubview:self.scrollView];
-        
         self.titleArray = [titleArray copy];
         
         [self initSubTitleViewsWithTitleArray:titleArray];
-        
-        // 默认选中第一个tab
-        self.index = 0;
-        
-        // 标题总个数
-        _numberOfTitleViews = titleArray.count;
     }
     
     return self;
@@ -51,6 +64,8 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    if (_titleViews.count == 0) { return; }
     
     // 设置scrollView frame
     self.scrollView.frame = self.bounds;
@@ -74,6 +89,11 @@
         lastLabelWidth = CGRectGetMaxX(label.frame);
     }
     
+    // 设置indexView的frame
+    UILabel *firstLabel = _titleViews.firstObject;
+    _indexView.frame = CGRectMake(0, 0, firstLabel.width, 2);
+    _indexView.center = CGPointMake(firstLabel.center.x, self.height-10);
+    
     // 设置scrollView contentSize
     UILabel *lastLabel = _titleViews.lastObject;
     _scrollView.contentSize = CGSizeMake(CGRectGetMaxX(lastLabel.frame) + 5, 0);
@@ -84,9 +104,7 @@
 
 - (void) tabLabelDidClick: (UITapGestureRecognizer *)tap
 {
-    UILabel *tapView = (UILabel *)tap.view;
-    
-    
+    self.index = tap.view.tag;
 }
 
 #pragma mark - Public Methods
@@ -117,6 +135,10 @@
         [self.scrollView addSubview:tabLabel];
     }
     
+    // 默认选中第一个
+    UILabel *firstLabel = _titleViews.firstObject;
+    firstLabel.textColor = ABODisplayTitleSelectedColor;
+    
     [self layoutIfNeeded];
 }
 
@@ -133,19 +155,74 @@
     return tabLabel;
 }
 
+- (void) setupContentOffSet: (UILabel *)currentLabel
+{
+    /** 这里会有3种情况出现
+     *   1. 当前page 小于 0.5                                        ===>  滚到最前
+     *   2. 0.5 < page <= contentSize.width - scrollView.width*0.5  ===> 中间位置
+     *   3. page > contentSize.width - scrollView.width*0.5         ===> 滚到最后
+     */
+
+    CGFloat contentSizeWidth = self.scrollView.contentSize.width;
+    CGFloat currentOffSetX = self.scrollView.contentOffset.x;
+    
+    CGFloat newContentOffSetX = 0;
+    
+    // 获取label再self的位置
+    CGFloat coverX  = [self convertRect:currentLabel.frame fromView:_scrollView].origin.x;
+    
+    if (coverX > self.width*0.5) {
+        
+        newContentOffSetX = currentOffSetX + (coverX-self.width*0.5)+currentLabel.width*0.5;
+    } else {
+        
+        newContentOffSetX = currentOffSetX - (self.width*0.5-coverX)+currentLabel.width*0.5;
+    }
+    
+    if (newContentOffSetX <= self.scrollView.width*0.5) {
+        
+        [_scrollView setContentOffset:CGPointZero animated:true];
+    } else if (newContentOffSetX >= contentSizeWidth - _scrollView.width) {
+        
+        [_scrollView setContentOffset:CGPointMake(contentSizeWidth-_scrollView.width, 0) animated:true];
+    } else {
+        
+        [self.scrollView setContentOffset:CGPointMake(newContentOffSetX, 0) animated:true];
+    }
+}
+
 #pragma mark - Getter | Setter
 
 - (void)setIndex:(NSInteger)index
 {
+    if (index < 0 || _numberOfTitleViews == 0 || index > _numberOfTitleViews ) { return; }
+    
+    if (_index == index) { return; }
+    
+    UILabel *lastlabel = _titleViews[_index];
+    lastlabel.textColor = ABODisplayTitleNormalColor;
+    
+    UILabel *currentLabel = _titleViews[index];
+    currentLabel.textColor = ABODisplayTitleSelectedColor;
+    
+    // 执行动画
+    [UIView animateWithDuration:ABODisplayTitleViewInterval animations:^{
+        self.indexView.width = currentLabel.width - ABODisplayTitleViewMargin/2;
+        self.indexView.center = CGPointMake(currentLabel.center.x, self.height-10);
+    }];
+    
+    // 设置scrollView的contentOffSet
+    [self setupContentOffSet:currentLabel];
+    
     _index = index;
-    
-    if (index < 0 || index > _numberOfTitleViews) { return; }
-    
 }
 
 - (void)setTitleArray:(NSArray *)titleArray
 {
     _titleArray = [titleArray copy];
+    
+    // 标题总个数
+    _numberOfTitleViews = titleArray.count;
     
     if (_titleViews.count == 0) {
         
@@ -173,6 +250,18 @@
     }
     
     return _scrollView;
+}
+
+- (UIView *)indexView
+{
+    if (!_indexView) {
+        
+        _indexView = [[UIView alloc] init];
+        _indexView.layer.cornerRadius = 0.5;
+        _indexView.backgroundColor = ABODisplayTitleSelectedColor;
+    }
+    
+    return _indexView;
 }
 
 - (NSMutableArray *)titleViews

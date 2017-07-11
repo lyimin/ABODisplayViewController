@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ABODisplayViewHeader.h"
+
+/*********************** ABODisplayTitleView ***********************/
 
 const CGFloat ABODisplayTitleViewHeight = 45;
 
 const CGFloat ABODisplayTitleViewMargin = 20;
+
+const NSTimeInterval ABODisplayTitleViewInterval = 0.3;
+
+
+/*********************** ABODisplayTagsView ***********************/
+
