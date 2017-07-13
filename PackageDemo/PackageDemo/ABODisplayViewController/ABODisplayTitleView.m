@@ -179,15 +179,15 @@
         newContentOffSetX = currentOffSetX - (self.width*0.5-coverX)+currentLabel.width*0.5;
     }
     
-    if (newContentOffSetX <= self.scrollView.width*0.5) {
-        
-        [_scrollView setContentOffset:CGPointZero animated:true];
-    } else if (newContentOffSetX >= contentSizeWidth - _scrollView.width) {
-        
-        [_scrollView setContentOffset:CGPointMake(contentSizeWidth-_scrollView.width, 0) animated:true];
-    } else {
+    if (newContentOffSetX >= 0 && newContentOffSetX <= contentSizeWidth - _scrollView.width) {
         
         [self.scrollView setContentOffset:CGPointMake(newContentOffSetX, 0) animated:true];
+    } else if (newContentOffSetX < 0){
+        
+        [_scrollView setContentOffset:CGPointZero animated:true];
+    } else {
+        
+        [_scrollView setContentOffset:CGPointMake(contentSizeWidth-_scrollView.width, 0) animated:true];
     }
 }
 

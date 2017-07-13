@@ -52,3 +52,17 @@ UIKIT_EXTERN const NSTimeInterval ABODisplayTitleViewInterval;
 
 /*********************** ABODisplayTagsView ***********************/
 
+// 左边tableView cell背景色
+#define ABODisplayLeftTableViewCellBgColor ABODisplayColor(246, 248, 249)
+
+// 左边tableView 分割线颜色
+#define ABODisplayTableViewBorderColor ABODisplayColor(233, 236, 239)
+
+// 左边tableView 标题文字
+#define ABODisplayLeftTableViewTitleFont [UIFont systemFontOfSize: 14]
+
+// 左边tableView 标题默认字体颜色
+#define ABODisplayLeftTableViewTitleNormalColor ABODisplayColor(119, 128, 140)
+
+// 左边tableView 标题选中字体颜色
+#define ABODisplayLeftTableViewTitleSelectedColor ABODisplayColor(50, 55, 65)

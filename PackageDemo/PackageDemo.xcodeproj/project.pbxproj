@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E39F96BB1F15C0F30018059C /* ABODisplayLeftController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F96BA1F15C0F30018059C /* ABODisplayLeftController.m */; };
+		E39F96BE1F15C3790018059C /* ABODisplayLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F96BD1F15C3790018059C /* ABODisplayLeftTableViewCell.m */; };
+		E39F96C11F15D6570018059C /* ABODisplayRightController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F96C01F15D6570018059C /* ABODisplayRightController.m */; };
+		E39F96C41F15D68A0018059C /* ABODisplayRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F96C31F15D68A0018059C /* ABODisplayRightTableViewCell.m */; };
 		E3C5326D1F1363B2003D17DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5326C1F1363B2003D17DA /* main.m */; };
 		E3C532701F1363B2003D17DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5326F1F1363B2003D17DA /* AppDelegate.m */; };
 		E3C532731F1363B2003D17DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C532721F1363B2003D17DA /* ViewController.m */; };
@@ -19,7 +23,6 @@
 		E3C532A61F13647F003D17DA /* ABODisplayTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C532A51F13647F003D17DA /* ABODisplayTitleView.m */; };
 		E3C532A91F1364A3003D17DA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C532A81F1364A3003D17DA /* UIView+Frame.m */; };
 		E3C532AD1F136658003D17DA /* ABODisplayViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C532AC1F136658003D17DA /* ABODisplayViewHeader.m */; };
-		E3DD057E1F14C9F1006CEB9E /* ABODisplayTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD057D1F14C9F1006CEB9E /* ABODisplayTagsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E39F96B91F15C0F30018059C /* ABODisplayLeftController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABODisplayLeftController.h; sourceTree = "<group>"; };
+		E39F96BA1F15C0F30018059C /* ABODisplayLeftController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABODisplayLeftController.m; sourceTree = "<group>"; };
+		E39F96BC1F15C3790018059C /* ABODisplayLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABODisplayLeftTableViewCell.h; sourceTree = "<group>"; };
+		E39F96BD1F15C3790018059C /* ABODisplayLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABODisplayLeftTableViewCell.m; sourceTree = "<group>"; };
+		E39F96BF1F15D6570018059C /* ABODisplayRightController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABODisplayRightController.h; sourceTree = "<group>"; };
+		E39F96C01F15D6570018059C /* ABODisplayRightController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABODisplayRightController.m; sourceTree = "<group>"; };
+		E39F96C21F15D68A0018059C /* ABODisplayRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABODisplayRightTableViewCell.h; sourceTree = "<group>"; };
+		E39F96C31F15D68A0018059C /* ABODisplayRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABODisplayRightTableViewCell.m; sourceTree = "<group>"; };
 		E3C532681F1363B2003D17DA /* PackageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PackageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C5326C1F1363B2003D17DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3C5326E1F1363B2003D17DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,8 +75,6 @@
 		E3C532A81F1364A3003D17DA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		E3C532AA1F1364B3003D17DA /* ABODisplayViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABODisplayViewHeader.h; sourceTree = "<group>"; };
 		E3C532AC1F136658003D17DA /* ABODisplayViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABODisplayViewHeader.m; sourceTree = "<group>"; };
-		E3DD057C1F14C9F1006CEB9E /* ABODisplayTagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABODisplayTagsView.h; sourceTree = "<group>"; };
-		E3DD057D1F14C9F1006CEB9E /* ABODisplayTagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABODisplayTagsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +174,16 @@
 				E3C532A21F13643E003D17DA /* ABODisplayViewController.m */,
 				E3C532A41F13647F003D17DA /* ABODisplayTitleView.h */,
 				E3C532A51F13647F003D17DA /* ABODisplayTitleView.m */,
-				E3DD057C1F14C9F1006CEB9E /* ABODisplayTagsView.h */,
-				E3DD057D1F14C9F1006CEB9E /* ABODisplayTagsView.m */,
 				E3C532A71F1364A3003D17DA /* UIView+Frame.h */,
 				E3C532A81F1364A3003D17DA /* UIView+Frame.m */,
+				E39F96B91F15C0F30018059C /* ABODisplayLeftController.h */,
+				E39F96BA1F15C0F30018059C /* ABODisplayLeftController.m */,
+				E39F96BC1F15C3790018059C /* ABODisplayLeftTableViewCell.h */,
+				E39F96BD1F15C3790018059C /* ABODisplayLeftTableViewCell.m */,
+				E39F96BF1F15D6570018059C /* ABODisplayRightController.h */,
+				E39F96C01F15D6570018059C /* ABODisplayRightController.m */,
+				E39F96C21F15D68A0018059C /* ABODisplayRightTableViewCell.h */,
+				E39F96C31F15D68A0018059C /* ABODisplayRightTableViewCell.m */,
 			);
 			path = ABODisplayViewController;
 			sourceTree = "<group>";
@@ -240,6 +255,7 @@
 				TargetAttributes = {
 					E3C532671F1363B2003D17DA = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 86BN6WPWU3;
 						ProvisioningStyle = Automatic;
 					};
 					E3C532801F1363B2003D17DA = {
@@ -306,13 +322,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E39F96C41F15D68A0018059C /* ABODisplayRightTableViewCell.m in Sources */,
+				E39F96BB1F15C0F30018059C /* ABODisplayLeftController.m in Sources */,
 				E3C532A91F1364A3003D17DA /* UIView+Frame.m in Sources */,
-				E3DD057E1F14C9F1006CEB9E /* ABODisplayTagsView.m in Sources */,
+				E39F96C11F15D6570018059C /* ABODisplayRightController.m in Sources */,
 				E3C532AD1F136658003D17DA /* ABODisplayViewHeader.m in Sources */,
 				E3C532A31F13643E003D17DA /* ABODisplayViewController.m in Sources */,
 				E3C532731F1363B2003D17DA /* ViewController.m in Sources */,
 				E3C532701F1363B2003D17DA /* AppDelegate.m in Sources */,
 				E3C5326D1F1363B2003D17DA /* main.m in Sources */,
+				E39F96BE1F15C3790018059C /* ABODisplayLeftTableViewCell.m in Sources */,
 				E3C532A61F13647F003D17DA /* ABODisplayTitleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,7 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 86BN6WPWU3;
 				INFOPLIST_FILE = PackageDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gjk.com.PackageDemo;
@@ -474,7 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 86BN6WPWU3;
 				INFOPLIST_FILE = PackageDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gjk.com.PackageDemo;
